@@ -1,17 +1,18 @@
 package Lambda;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
+
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-import java.nio.charset.StandardCharsets;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,8 +23,8 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
     }
 
     public ArrayList<String> handleRequest(Map<String,String> input, Context context) {
-        LambdaLogger logger = context.getLogger();
 
+        ArrayList<String> logs = new ArrayList<>();
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIARLOHEGPV2SDYI2FZ", "GDdxw0buyGIS6UlGQXfTwYRSQxcfWMJsnNx8nMZZ");
         AmazonS3 s3Client = AmazonS3ClientBuilder
                 .standard()
@@ -32,11 +33,19 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 .build();
 
         InputStream is = s3Client.getObject("cloud-hw-3", "LogFileGenerator.2021-11-01.txt").getObjectContent();
+
         Scanner scanner = new Scanner(is, StandardCharsets.UTF_8.name());
 
         String text = scanner.useDelimiter("\\A").next();
 
         String[] lines  = text.split("\n");
+
+        String md5 = null;
+        try {
+            md5 = org.apache.commons.codec.digest.DigestUtils.md5Hex(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         String timestamp = input.get("timestamp");
         String dt = input.get("dt");
@@ -51,7 +60,6 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 int diff = convertToSecInt(dt.substring(0,2), dt.substring(3,5), dt.substring(6,8), dt.substring(9,12));
                 int lowerRange = time - diff;
                 int upperRange = time + diff;
-                ArrayList<String> logs = new ArrayList<>();
                 Pattern r = Pattern.compile("([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}");
                 while (mid >= 0) {
                     String line = lines[mid--];
@@ -88,7 +96,7 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 left = mid + 1;
             }
         }
-
-        return null;
+        logs.add(md5);
+        return logs;
     }
 }
