@@ -1,23 +1,27 @@
-import com.typesafe.config.ConfigFactory
 import LambdaInvocation.getLogs.{LambdaFuncGrpc, LambdaInvokeRequest, LambdaInvokeReply}
 import io.grpc.{Server, ServerBuilder}
+import HelperUtils.{CreateLogger, ObtainConfigReference}
+import com.typesafe.config.Config
 
 import java.util.logging.Logger
 import scala.concurrent.{ExecutionContext, Future}
 
-object grpcServer{
+object grpcServer {
+
+  val config: Config = ObtainConfigReference("parameters") match {
+    case Some(value) => value
+    case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
+  }
 
   private val logger = Logger.getLogger(classOf[grpcServer].getName)
-  private val port = ConfigFactory.load().getInt("parameters.port")
 
   def main(args: Array[String]): Unit = {
-
-    logger.info("Starting grpcServer.")
     val server = new grpcServer(ExecutionContext.global)
     server.start()
     server.blockUntilShutdown()
-
   }
+
+  private val port = config.getInt("parameters.port")
 }
 
 class grpcServer(executionContext: ExecutionContext) {self =>
