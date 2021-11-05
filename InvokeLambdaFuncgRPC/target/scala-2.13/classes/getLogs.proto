@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package LambdaInvocation;
+
+service LambdaFunc {
+  rpc RetrieveLogs (LambdaInvokeRequest) returns (LambdaInvokeReply) {}
+}
+
+message LambdaInvokeRequest {
+  string timestamp = 1;
+  string dt = 2;
+}
+
+message LambdaInvokeReply {
+  repeated string result = 1;
+}
