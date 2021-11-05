@@ -1,11 +1,12 @@
 import com.google.gson.Gson
-import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.Logger
 import org.apache.http.client.config.RequestConfig
 import org.apache.http.client.methods.{CloseableHttpResponse, HttpPost}
 import org.apache.http.entity.StringEntity
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.util.EntityUtils
+import HelperUtils.{CreateLogger, ObtainConfigReference}
+import com.typesafe.config.Config
 
 import java.io.{File, PrintWriter}
 import scala.concurrent.duration.{Duration, DurationInt}
@@ -16,9 +17,14 @@ class LambdaInvoker
 
 object LambdaInvoker {
 
+  val config: Config = ObtainConfigReference("parameters") match {
+    case Some(value) => value
+    case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
+  }
+
   val logger: Logger = Logger("Logger")
 
-  val duration: Duration = ConfigFactory.load().getInt("parameters.duration").seconds
+  val duration: Duration = config.getInt("parameters.duration").seconds
 
   def apply(timestamp: String, dt: String): Array[String] = {
     logger.info("Started awsCaller execution\n")
@@ -27,10 +33,10 @@ object LambdaInvoker {
   }
 
   def sendRequest(timestamp: String, dt: String): Array[String] = {
-    val input = Input(ConfigFactory.load().getString("lambdaInvoker.timestamp"), ConfigFactory.load().getString("lambdaInvoker.dt"))
+    val input = Input(config.getString("parameters.timestamp"), config.getString("parameters.dt"))
     val inputAsJson: String = new Gson().toJson(input)
 
-    val url = ConfigFactory.load().getString("lambdaInvoker.url")
+    val url = config.getString("parameters.url")
 
     val requestConfig = RequestConfig.custom().build()
 
@@ -46,7 +52,7 @@ object LambdaInvoker {
     val entity = response.getEntity
 
     val str = EntityUtils.toString(entity,"UTF-8").split("\",\"")
-    val pw = new PrintWriter(new File(ConfigFactory.load().getString("lambdaInvoker.fileOutputPath")))
+    val pw = new PrintWriter(new File(config.getString("parameters.fileOutputPath")))
     str.foreach(line => pw.write(line + "\n"))
 
     if(str.length == 1) {
