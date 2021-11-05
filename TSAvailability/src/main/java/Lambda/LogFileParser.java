@@ -58,13 +58,17 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
             mid = (left + right) / 2;
             if (time == convertToSecInt(lines[mid].substring(0,2), lines[mid].substring(3,5), lines[mid].substring(6,8), lines[mid].substring(9,12))) {
                 int diff = convertToSecInt(dt.substring(0,2), dt.substring(3,5), dt.substring(6,8), dt.substring(9,12));
+                if (diff == 0) {
+                    logs.add(lines[mid]);
+                    return logs;
+                }
                 int lowerRange = time - diff;
                 int upperRange = time + diff;
                 Pattern r = Pattern.compile("([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}");
                 while (mid >= 0) {
                     String line = lines[mid--];
                     String[] lineArr = line.split(" ");
-                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) <= lowerRange) {
+                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) < lowerRange) {
                         break;
                     }
                     Matcher m = r.matcher(lineArr[lineArr.length-1]);
@@ -78,7 +82,7 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 while (mid < lines.length) {
                     String line = lines[mid++];
                     String[] lineArr = line.split(" ");
-                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) >= upperRange) {
+                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) > upperRange) {
                         break;
                     }
                     Matcher m = r.matcher(lineArr[lineArr.length-1]);
@@ -88,7 +92,6 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 }
                 return logs;
             }
-            mid = (left + right) / 2;
             if (time < convertToSecInt(lines[mid].substring(0,2), lines[mid].substring(3,5), lines[mid].substring(6,8), lines[mid].substring(9,12))) {
                 right = mid - 1;
             }
