@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\tanma\OneDrive\Desktop\AWSLambdaLogsExtractor\InvokeLambdaFuncgRPC\target\scala-2.13\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeReply$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$GreeterStub.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$GreeterStub$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$GreeterBlockingStub.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$GreeterBlockingStub$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$GreeterBlockingClient.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GetLogsProto.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeReply.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeRequest$LambdaInvokeRequestLens.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$Greeter.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$Greeter$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeReply$LambdaInvokeReplyLens.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GetLogsProto$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	LambdaInvokeRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$Greeter$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GreeterGrpc$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\tanma\OneDrive\Desktop\AWSLambdaLogsExtractor\InvokeLambdaFuncgRPC\target\scala-2.13\classes.bak[0m
