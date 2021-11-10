@@ -1,6 +1,6 @@
 import com.typesafe.config.{Config, ConfigFactory}
-import io.grpc.examples.helloworld.getLogs.GreeterGrpc.GreeterBlockingStub
-import io.grpc.examples.helloworld.getLogs.{GreeterGrpc, LambdaInvokeRequest}
+import LambdaInvocation.getLogs.LambdaFuncGrpc.LambdaFuncBlockingStub
+import LambdaInvocation.getLogs.{LambdaFuncGrpc, LambdaInvokeRequest}
 import io.grpc.{ManagedChannel, ManagedChannelBuilder, StatusRuntimeException}
 
 import java.util.concurrent.TimeUnit
@@ -17,7 +17,7 @@ object Client {
 
   def apply(host: String, port: Int): Client = {
     val channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build
-    val blockingStub = GreeterGrpc.blockingStub(channel)
+    val blockingStub = LambdaFuncGrpc.blockingStub(channel)
     new Client(channel, blockingStub)
   }
 
@@ -30,12 +30,12 @@ object Client {
   }
 }
 
-class Client private(private val channel: ManagedChannel, private val blockingStub: GreeterBlockingStub) {
+class Client private(private val channel: ManagedChannel, private val blockingStub: LambdaFuncBlockingStub) {
   private[this] val logger = Logger.getLogger(classOf[Client].getName)
 
   def shutdown(): Unit = {
     logger.info("Trying to shutdown")
-    channel.shutdown.awaitTermination(ConfigFactory.load().getLong("parameters.timeout"), TimeUnit.SECONDS)
+    channel.shutdown.awaitTermination(ConfigFactory.load().getLong("parameters.duration"), TimeUnit.SECONDS)
   }
 
   def find(timestamp: String, dt: String): Unit = {
@@ -44,7 +44,7 @@ class Client private(private val channel: ManagedChannel, private val blockingSt
     try {
       val response = blockingStub.retrieveLogs(request)
       logger.info("Response: " + response.result)
-      if (response.result.toInt == -1)
+      if (response.result == null)
         logger.info("No log statements found for given parameters")
       else
         logger.info("Log message(s) at (and around) Index " + response.result + " fits the given parameters.")
