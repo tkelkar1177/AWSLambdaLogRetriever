@@ -1,0 +1,52 @@
+[debug] > Exec(runMain Client, None, None)
+[debug] Evaluating tasks: Compile / runMain
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] Compiling 1 protobuf files to C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\target\scala-2.13\src_managed\main\scalapb
+[info] compiling 7 Scala sources to C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\target\scala-2.13\classes ...
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Client.scala:2:16: object examples is not a member of package io.grpc
+[error] import io.grpc.examples.helloworld.getLogs.GreeterGrpc.GreeterBlockingStub
+[error]                ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Client.scala:3:16: object examples is not a member of package io.grpc
+[error] import io.grpc.examples.helloworld.getLogs.{GreeterGrpc, LambdaInvokeRequest}
+[error]                ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Client.scala:33:85: not found: type GreeterBlockingStub
+[error] class Client private(private val channel: ManagedChannel, private val blockingStub: GreeterBlockingStub) {
+[error]                                                                                     ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Client.scala:20:24: not found: value GreeterGrpc
+[error]     val blockingStub = GreeterGrpc.blockingStub(channel)
+[error]                        ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Client.scala:42:19: not found: value LambdaInvokeRequest
+[error]     val request = LambdaInvokeRequest(timestamp, dt)
+[error]                   ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:2:16: object examples is not a member of package io.grpc
+[error] import io.grpc.examples.helloworld.getLogs.{GreeterGrpc, LambdaInvokeRequest, LambdaInvokeReply}
+[error]                ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:47:37: not found: value GreeterGrpc
+[error]   private class GreeterImpl extends GreeterGrpc.Greeter {
+[error]                                     ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:32:60: not found: value GreeterGrpc
+[error]     server = ServerBuilder.forPort(Server.port).addService(GreeterGrpc.bindService(new GreeterImpl, executionContext)).build.start
+[error]                                                            ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:42:32: value shutdown is not a member of Option[Server]
+[error]     if (server != null) server.shutdown()
+[error]                                ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:45:32: value awaitTermination is not a member of Option[Server]
+[error]     if (server != null) server.awaitTermination()
+[error]                                ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:48:60: not found: type LambdaInvokeReply
+[error]     override def findLog(req: LambdaInvokeRequest): Future[LambdaInvokeReply] = {
+[error]                                                            ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:48:31: not found: type LambdaInvokeRequest
+[error]     override def findLog(req: LambdaInvokeRequest): Future[LambdaInvokeReply] = {
+[error]                               ^
+[error] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:50:19: not found: value LambdaInvokeReply
+[error]       val reply = LambdaInvokeReply(exec)
+[error]                   ^
+[warn] C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncgRPC\src\main\scala\Server.scala:3:17: imported `Server` is permanently hidden by definition of object Server
+[warn] import io.grpc.{Server, ServerBuilder}
+[warn]                 ^
+[warn] one warning found
+[error] 13 errors found
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 9 s, completed 6 Nov, 2021 1:02:36 AM
+[debug] > Exec(idea-shell, None, None)
