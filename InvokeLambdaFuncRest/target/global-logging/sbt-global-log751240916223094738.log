@@ -1,0 +1,144 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\tanma\AppData\Local\Temp\idea9.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\tanma\AppData\Local\Temp\idea9.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.5.5 (Oracle Corporation Java 1.8.0_191)
+[debug]       Load.loadUnit: plugins took 132.9926ms
+[debug]       Load.loadUnit: defsScala took 0.4932ms
+[debug] [Loading] Scanning directory C:\Users\tanma\.sbt\1.0\plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\tanma\.sbt\1.0\plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 22.9645 ms
+[debug]           Load.resolveProject(global-plugins) took 54.6733ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: C:\Users\tanma\.sbt\1.0\plugins, plugins: List(<none>))) took 113.6114ms
+[debug] [Loading] Done in C:\Users\tanma\.sbt\1.0\plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 149.7554ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.2726ms
+[debug]     Load.loadUnit(file:/C:/Users/tanma/.sbt/1.0/plugins/, ...) took 294.3317ms
+[debug]   Load.apply: load took 487.4568ms
+[debug]   Load.apply: resolveProjects took 7.4969ms
+[debug]   Load.apply: finalTransforms took 68.587ms
+[debug]   Load.apply: config.delegates took 12.5813ms
+[debug]   Load.apply: Def.make(settings)... took 458.4132ms
+[debug]   Load.apply: structureIndex took 140.3515ms
+[debug]   Load.apply: mkStreams took 2.0131ms
+[info] loading global plugins from C:\Users\tanma\.sbt\1.0\plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 3854.6895ms
+[debug]           Load.loadUnit: plugins took 34.6027ms
+[debug]           Load.loadUnit: defsScala took 0.0035ms
+[debug] [Loading] Scanning directory C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest\project
+[debug]             Load.loadUnit: mkEval took 9.2337ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 4.8123 ms
+[info] loading settings for project invokelambdafuncrest-build from idea9.sbt ...
+[debug]               Load.resolveProject(invokelambdafuncrest-build) took 4.9043ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id invokelambdafuncrest-build, base: C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest\project, plugins: List(<none>))) took 10.8769ms
+[debug] [Loading] Done in C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest\project, returning: (invokelambdafuncrest-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 3442.4091ms
+[debug]           Load.loadUnit: cleanEvalClasses took 9.8619ms
+[debug]         Load.loadUnit(file:/C:/Users/tanma/OneDrive/Desktop/CHW3/AWSLambdaLogRetriever/InvokeLambdaFuncRest/project/, ...) took 3488.6986ms
+[debug]       Load.apply: load took 3491.426ms
+[debug]       Load.apply: resolveProjects took 0.2507ms
+[debug]       Load.apply: finalTransforms took 20.9905ms
+[debug]       Load.apply: config.delegates took 1.2324ms
+[debug]       Load.apply: Def.make(settings)... took 117.3822ms
+[debug]       Load.apply: structureIndex took 51.2298ms
+[debug]       Load.apply: mkStreams took 0.0036ms
+[info] loading project definition from C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[debug]     Load.loadUnit: plugins took 6259.6305ms
+[debug]     Load.loadUnit: defsScala took 0.0029ms
+[debug] [Loading] Scanning directory C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest
+[debug]       Load.loadUnit: mkEval took 0.3357ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin)))
+[debug] Clause(And(Set(Atom(sbt.plugins.CorePlugin), Atom(sbt.plugins.JvmPlugin))),Set(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 5.0915 ms
+[info] loading settings for project invokelambdafuncrest from build.sbt ...
+[debug]         Load.resolveProject(invokelambdafuncrest) took 193.1264ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id invokelambdafuncrest, base: C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest, plugins: List(<none>))) took 200.6213ms
+[debug] [Loading] Done in C:\Users\tanma\OneDrive\Desktop\CHW3\AWSLambdaLogRetriever\InvokeLambdaFuncRest, returning: (invokelambdafuncrest)
+[debug]     Load.loadUnit: loadedProjectsRaw took 4953.9082ms
+[debug]     Load.loadUnit: cleanEvalClasses took 34.3943ms
+[debug]   Load.loadUnit(file:/C:/Users/tanma/OneDrive/Desktop/CHW3/AWSLambdaLogRetriever/InvokeLambdaFuncRest/, ...) took 11248.9138ms
+[debug] Load.apply: load took 11251.3972ms
+[debug] Load.apply: resolveProjects took 0.2233ms
+[debug] Load.apply: finalTransforms took 52.9273ms
+[debug] Load.apply: config.delegates took 0.421ms
+[debug] Load.apply: Def.make(settings)... took 227.9501ms
+[debug] Load.apply: structureIndex took 38.9674ms
+[debug] Load.apply: mkStreams took 0.004ms
+[info] set current project to InvokeLambdaFuncRest (in build file:/C:/Users/tanma/OneDrive/Desktop/CHW3/AWSLambdaLogRetriever/InvokeLambdaFuncRest/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(; set ideaPort in Global := 58407 ; idea-shell, None, None)
+[debug] > Exec(set ideaPort in Global := 58407, None, None)
+[info] Defining Global / ideaPort
+[info] The new value will be used by Compile / compile, Test / compile
+[debug] Defining 
+[debug] 	Global / ideaPort
+[debug] 
+[debug] The new value will be used by 
+[debug] 	Compile / compile
+[debug] 	Test / compile
+[info] Reapplying settings...
+[info] set current project to InvokeLambdaFuncRest (in build file:/C:/Users/tanma/OneDrive/Desktop/CHW3/AWSLambdaLogRetriever/InvokeLambdaFuncRest/)
+[debug] > Exec(idea-shell, None, None)
+[warn] In the last 6071 seconds, 18.909 (0.3%) were spent in GC. [Heap: 0.44GB free of 0.54GB, max 1.33GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.
