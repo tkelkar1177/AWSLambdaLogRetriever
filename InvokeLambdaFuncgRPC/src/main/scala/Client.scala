@@ -1,17 +1,18 @@
-import com.typesafe.config.{Config, ConfigFactory}
 import LambdaInvocation.getLogs.LambdaFuncGrpc.LambdaFuncBlockingStub
 import LambdaInvocation.getLogs.{LambdaFuncGrpc, LambdaInvokeRequest}
 import io.grpc.{ManagedChannel, ManagedChannelBuilder, StatusRuntimeException}
+import HelperUtils.{CreateLogger, ObtainConfigReference}
+import com.typesafe.config.Config
 
 import java.util.concurrent.TimeUnit
 import java.util.logging.{Level, Logger}
 
 object Client {
 
-  val config: Config  = ConfigFactory.load()
-  val timestamp: String = config.getString("parameters.timestamp")
-  val dt: String = config.getString("parameters.dt")
-  val port: Int = config.getInt("parameters.port")
+  val config: Config = ObtainConfigReference("parameters") match {
+    case Some(value) => value
+    case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
+  }
 
   private[this] val logger = Logger.getLogger(classOf[Client].getName)
 
@@ -23,9 +24,9 @@ object Client {
 
   def main(args: Array[String]): Unit = {
     logger.info("Starting Client:" + "" +
-      "port\t: " + port)
-    val client = Client("localhost", port)
-    try client.find(timestamp, dt)
+      "port\t: " + config.getInt("parameters.port"))
+    val client = Client("localhost", config.getInt("parameters.port"))
+    try client.find(config.getString("parameters.timestamp"), config.getString("parameters.dt"))
     finally client.shutdown()
   }
 }
@@ -33,25 +34,19 @@ object Client {
 class Client private(private val channel: ManagedChannel, private val blockingStub: LambdaFuncBlockingStub) {
   private[this] val logger = Logger.getLogger(classOf[Client].getName)
 
+  val config: Config = ObtainConfigReference("parameters") match {
+    case Some(value) => value
+    case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
+  }
+
   def shutdown(): Unit = {
     logger.info("Trying to shutdown")
-    channel.shutdown.awaitTermination(ConfigFactory.load().getLong("parameters.duration"), TimeUnit.SECONDS)
+    channel.shutdown.awaitTermination(config.getLong("parameters.duration"), TimeUnit.SECONDS)
   }
 
   def find(timestamp: String, dt: String): Unit = {
     val request = LambdaInvokeRequest(timestamp, dt)
     logger.info("Request created")
-    try {
-      val response = blockingStub.retrieveLogs(request)
-      logger.info("Response: " + response.result)
-      if (response.result == null)
-        logger.info("No log statements found for given parameters")
-      else
-        logger.info("Log message(s) at (and around) Index " + response.result + " fits the given parameters.")
-    }
-    catch {
-      case e: StatusRuntimeException =>
-        logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus)
-    }
+    blockingStub.retrieveLogs(request)
   }
 }
