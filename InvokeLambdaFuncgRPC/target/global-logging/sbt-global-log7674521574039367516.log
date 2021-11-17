@@ -1,0 +1,4 @@
+[debug] > Exec(runMain grpcServer, None, None)
+[debug] Evaluating tasks: Compile / runMain
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] In the last 7424 seconds, 8.063 (0.1%) were spent in GC. [Heap: 0.47GB free of 0.60GB, max 1.33GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.
