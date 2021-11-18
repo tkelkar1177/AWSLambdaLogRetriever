@@ -32,7 +32,7 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 .withRegion("us-east-1")
                 .build();
 
-        InputStream is = s3Client.getObject("cloud-hw-3", "logfile.log").getObjectContent();
+        InputStream is = s3Client.getObject("cloud-hw-3", "logfile.txt").getObjectContent();
 
         Scanner scanner = new Scanner(is, StandardCharsets.UTF_8.name());
 
