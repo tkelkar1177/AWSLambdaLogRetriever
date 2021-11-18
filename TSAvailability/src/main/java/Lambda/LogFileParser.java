@@ -64,7 +64,7 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 while (mid >= 0) {
                     String line = lines[mid--];
                     String[] lineArr = line.split(" ");
-                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) < lowerRange) {
+                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) <= lowerRange) {
                         break;
                     }
                     Matcher m = r.matcher(lineArr[lineArr.length-1]);
@@ -78,7 +78,7 @@ public class LogFileParser implements RequestHandler<Map<String, String>, ArrayL
                 while (mid < lines.length) {
                     String line = lines[mid++];
                     String[] lineArr = line.split(" ");
-                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) > upperRange) {
+                    if (convertToSecInt(lineArr[0].substring(0,2), lineArr[0].substring(3,5), lineArr[0].substring(6,8), lineArr[0].substring(9,12)) >= upperRange) {
                         break;
                     }
                     Matcher m = r.matcher(lineArr[lineArr.length-1]);
