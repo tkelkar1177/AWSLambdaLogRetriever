@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AWSLambdaLogRetriever.iml" filepath="$PROJECT_DIR$/.idea/AWSLambdaLogRetriever.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TSAvailability/TSAvailability.iml" filepath="$PROJECT_DIR$/TSAvailability/TSAvailability.iml" />
     </modules>
   </component>
 </project>
