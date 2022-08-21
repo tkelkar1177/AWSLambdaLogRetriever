@@ -21,5 +21,3 @@ This project invokes the Lambda function where a client makes a call to a server
 This project can be run by running 'sbt "runMain.Client"' for the client stub and 'sbt "runMain.grpcServer"' for the server stub in a terminal in the project directory.
 
 The LogFileGenerator is deployed on an EC2 instance which produces logs in a text file stored on S3.
-
-The Youtube video of the demo of this project can be found here: https://youtu.be/QLcx1Fujrmc
